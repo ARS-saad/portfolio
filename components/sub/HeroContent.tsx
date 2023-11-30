@@ -1,8 +1,13 @@
 "use client";
 
-import { slideInFromTop } from "@/utils/motion";
+import {
+  slideInFromLeft,
+  slideInFromRight,
+  slideInFromTop,
+} from "@/utils/motion";
 import { SparklesIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function HeroContent() {
   return (
@@ -21,7 +26,43 @@ export default function HeroContent() {
             Fullstack Developer Portfolio
           </h1>
         </motion.div>
+        <motion.div
+          variants={slideInFromLeft(0.5)}
+          className="flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto"
+        >
+          <span>
+            Providing
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+              {" "}
+              the best{" "}
+            </span>
+            project experience
+          </span>
+        </motion.div>
+        <motion.p
+          variants={slideInFromLeft(0.8)}
+          className="text-lg text-gray-400 my-5 max-w-[600px]"
+        >
+          I am a Fullstack Web developer, Check out my projects and skills.
+        </motion.p>
+        <motion.a
+          variants={slideInFromLeft(1)}
+          className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
+        >
+          Learn more!
+        </motion.a>
       </div>
+      <motion.div
+        variants={slideInFromRight(0.8)}
+        className="w-full h-full flex justify-center items-center"
+      >
+        <Image
+          src="/mainIconsDark.svg"
+          alt="work icons"
+          height={650}
+          width={650}
+        />
+      </motion.div>
     </motion.div>
   );
 }
